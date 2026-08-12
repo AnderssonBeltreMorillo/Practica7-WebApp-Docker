@@ -16,4 +16,6 @@ app.MapGet("/", () => {
     }
 });
 
-app.Run();
+// Configuración obligatoria para despliegues en Render
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Run($"http://0.0.0.0:{port}");
